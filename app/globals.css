@@ -1,0 +1,378 @@
+@import "tailwindcss";
+
+/* =========================
+   CSS Variables
+========================= */
+:root {
+  /* Brand Palette */
+  --brand-dark: #0f2854;
+  --brand-main: #1c4d8d;
+  --brand-soft: #4988c4;
+  --brand-accent: #bde8f5;
+
+  --success-main: #2e8b57;
+  --success-soft: #3cb371;
+  --success-dark: #1e5631;
+
+  /* Neutrals */
+  --clr-white: #ffffff;
+  --clr-bg: #f5f7fa;
+  --clr-border: #e1e5eb;
+  --clr-muted: #6c757d;
+  --clr-text: #212529;
+
+  /* Typography scale */
+  --ratio-golden: 1.618;
+  --ratio-silver: 1.414;
+  --ratio-fourth: 1.333;
+  --ratio-fifth: 1.25;
+  --ratio-third: 1.2;
+
+  /* Spacing */
+  --space-1: 0.5rem;
+  --space-2: 0.75rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+
+  /* Fonts */
+  --font-xs: 0.75rem;
+  --font-sm: 0.875rem;
+  --font-base: 1rem;
+  --font-md: calc(1rem * var(--ratio-third));
+  --font-lg: calc(1rem * var(--ratio-fifth));
+  --font-xl: calc(1rem * var(--ratio-fourth));
+  --font-2xl: calc(1rem * var(--ratio-silver));
+  --font-3xl: calc(1rem * var(--ratio-golden));
+
+  /* Radius */
+  --radius-soft: 12px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-soft: 0 4px 10px rgba(0, 0, 0, 0.08);
+  --shadow-deep: 0 14px 30px rgba(0, 0, 0, 0.15);
+
+  /* Motion */
+  --speed-fast: 150ms ease;
+  --speed-base: 300ms ease;
+  --speed-slow: 600ms ease;
+
+  /* Fonts */
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-heading: "Poppins", system-ui, sans-serif;
+}
+
+/* =========================
+   Reset
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--font-base);
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  line-height: 1.6;
+}
+
+/* =========================
+   Typography
+========================= */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  color: var(--brand-dark);
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: var(--font-3xl);
+}
+h2 {
+  font-size: var(--font-2xl);
+}
+h3 {
+  font-size: var(--font-xl);
+}
+h4 {
+  font-size: var(--font-lg);
+}
+h5 {
+  font-size: var(--font-md);
+}
+h6 {
+  font-size: var(--font-base);
+}
+
+/* =========================
+   Links
+========================= */
+a {
+  color: var(--brand-main);
+  text-decoration: none;
+  transition: color var(--speed-fast);
+}
+
+a:hover {
+  color: var(--brand-soft);
+}
+/* =========================
+   🔥 BUTTON SYSTEM (ALL FULL ROUND)
+========================= */
+button,
+.btn {
+  position: relative;
+  overflow: hidden; /* 👈 important for slide */
+  font-family: inherit;
+  cursor: pointer;
+  padding: 0.6rem 1.75rem;
+  border-radius: var(--radius-full) !important;
+  font-size: var(--font-sm);
+  font-weight: 500;
+  border: 1px solid transparent;
+  transition: color var(--speed-base), transform var(--speed-base),
+    box-shadow var(--speed-base);
+  line-height: 1;
+  z-index: 0;
+}
+
+/* SLIDING BG LAYER */
+button::before,
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  transform: translateX(-100%);
+  transition: transform 0.45s ease;
+  z-index: -1;
+}
+
+/* Hover BG Slide */
+button:hover::before,
+.btn:hover::before {
+  transform: translateX(0%);
+}
+
+/* =========================
+   VARIANTS
+========================= */
+
+/* Primary */
+.btn-primary {
+  background: var(--brand-main);
+  color: var(--clr-white);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-primary::before {
+  background: var(--clr-white);
+}
+
+.btn-primary:hover {
+  box-shadow: var(--shadow-deep);
+  transform: translateY(-1px);
+}
+
+/* Secondary */
+.btn-secondary {
+  background: transparent;
+  color: var(--brand-main);
+  border-color: var(--brand-main);
+}
+
+.btn-secondary::before {
+  background: var(--brand-main);
+}
+
+.btn-secondary:hover {
+  color: var(--clr-white);
+}
+
+/* Soft */
+.btn-soft {
+  background: rgba(28, 77, 141, 0.08);
+  color: var(--brand-main);
+}
+
+.btn-soft::before {
+  background: rgba(28, 77, 141, 0.18);
+}
+
+/* Danger */
+.btn-danger {
+  background: #dc3545;
+  color: #fff;
+}
+
+.btn-danger::before {
+  background: #b02a37;
+}
+
+/* Disabled */
+button:disabled,
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+button:disabled::before,
+.btn:disabled::before {
+  display: none;
+}
+
+/* =========================
+   Forms
+========================= */
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius-soft);
+  border: 1px solid var(--clr-border);
+  font-size: var(--font-sm);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--brand-main);
+}
+
+/* =========================
+   Utilities
+========================= */
+.container {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: var(--space-5);
+}
+
+.card {
+  background: var(--clr-white);
+  border-radius: var(--radius-soft);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-soft);
+}
+
+.text-muted {
+  color: var(--clr-muted);
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Triangle clip-path */
+.clip-triangle {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+/* Slow pulse animations */
+@keyframes pulse-slow {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s infinite;
+}
+
+@keyframes ping-slow {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.4;
+  }
+}
+
+.animate-ping-slow {
+  animation: ping-slow 10s infinite;
+}
+
+/* ----------------------------------------------------------------------
+   REVEAL ANIMATIONS
+   ---------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: all 1s ease-out;
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: all 1s ease-out;
+}
+
+.reveal.show,
+.reveal-left.show,
+.reveal-right.show {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ================================
+   MARQUEE ANIMATION (GLOBAL)
+================================ */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 38s linear infinite;
+  will-change: transform;
+}

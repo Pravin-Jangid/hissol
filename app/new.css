@@ -1,0 +1,269 @@
+
+
+@import "tailwindcss";
+
+/* =========================
+   Google Fonts
+========================= */
+
+/* =========================
+   CSS Variables
+========================= */
+:root {
+  /* Brand Palette */
+  --brand-dark: #0f2854;
+  --brand-main: #1c4d8d;
+  --brand-soft: #4988c4;
+  --brand-accent: #bde8f5;
+
+  --success-main: #2e8b57;
+  --success-soft: #3cb371;
+  --success-dark: #1e5631;
+
+  /* Neutrals */
+  --clr-white: #ffffff;
+  --clr-bg: #f5f7fa;
+  --clr-border: #e1e5eb;
+  --clr-muted: #6c757d;
+  --clr-text: #212529;
+
+  /* Ratios */
+  --ratio-golden: 1.618;
+  --ratio-silver: 1.414;
+  --ratio-fourth: 1.333;
+  --ratio-fifth: 1.25;
+  --ratio-third: 1.2;
+
+  /* Spacing */
+  --space-1: 0.5rem;
+  --space-2: 0.75rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+
+  /* Typography */
+  --font-xs: 0.75rem;
+  --font-sm: 0.875rem;
+  --font-base: 1rem;
+  --font-md: calc(1rem * var(--ratio-third));
+  --font-lg: calc(1rem * var(--ratio-fifth));
+  --font-xl: calc(1rem * var(--ratio-fourth));
+  --font-2xl: calc(1rem * var(--ratio-silver));
+  --font-3xl: calc(1rem * var(--ratio-golden));
+
+  /* Radius */
+  --radius-soft: 10px;
+  --radius-round: 9999px;
+
+  /* Shadows */
+  --shadow-soft: 0 4px 10px rgba(0, 0, 0, 0.08);
+  --shadow-deep: 0 14px 30px rgba(0, 0, 0, 0.15);
+
+  /* Motion */
+  --speed-fast: 150ms ease;
+  --speed-base: 300ms ease;
+  --speed-slow: 600ms ease;
+
+  /* Fonts */
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-heading: "Poppins", system-ui, sans-serif;
+}
+
+/* =========================
+   CSS Reset
+========================= */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-base);
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+  line-height: 1.6;
+}
+
+/* =========================
+   Typography
+========================= */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  color: var(--brand-dark);
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: var(--font-3xl);
+}
+h2 {
+  font-size: var(--font-2xl);
+}
+h3 {
+  font-size: var(--font-xl);
+}
+h4 {
+  font-size: var(--font-lg);
+}
+h5 {
+  font-size: var(--font-md);
+}
+h6 {
+  font-size: var(--font-base);
+}
+
+p {
+  font-size: var(--font-base);
+  color: var(--clr-text);
+}
+
+/* =========================
+   Links
+========================= */
+a {
+  color: var(--brand-main);
+  text-decoration: none;
+  transition: color var(--speed-fast);
+}
+
+a:hover {
+  color: var(--brand-soft);
+}
+/* =========================
+   Buttons
+========================= */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-round); /* 🔥 fully rounded */
+  font-size: var(--font-sm);
+  font-weight: 500;
+  line-height: 1;
+  transition: all var(--speed-base);
+  border: 1px solid transparent;
+}
+
+/* =========================
+   1️⃣ Primary
+========================= */
+.btn-primary {
+  background: var(--brand-main);
+  color: var(--clr-white);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-primary:hover {
+  background: var(--brand-dark);
+  box-shadow: var(--shadow-deep);
+  transform: translateY(-1px);
+}
+
+/* =========================
+   2️⃣ Secondary (Outline)
+========================= */
+.btn-secondary {
+  background: transparent;
+  color: var(--brand-main);
+  border-color: var(--brand-main);
+}
+
+.btn-secondary:hover {
+  background: var(--brand-main);
+  color: var(--clr-white);
+}
+
+/* =========================
+   3️⃣ Soft (Muted / Ghost)
+========================= */
+.btn-soft {
+  background: rgba(28, 77, 141, 0.08);
+  color: var(--brand-main);
+}
+
+.btn-soft:hover {
+  background: rgba(28, 77, 141, 0.15);
+}
+
+/* =========================
+   4️⃣ Danger / Alert
+========================= */
+.btn-danger {
+  background: #dc3545;
+  color: var(--clr-white);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-danger:hover {
+  background: #b02a37;
+  box-shadow: var(--shadow-deep);
+  transform: translateY(-1px);
+}
+
+/* =========================
+   Disabled
+========================= */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* =========================
+   Forms
+========================= */
+input,
+textarea,
+select {
+  width: 100%;
+  padding: var(--space-2);
+  border-radius: var(--radius-soft);
+  border: 1px solid var(--clr-border);
+  font-family: var(--font-body);
+  font-size: var(--font-sm);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--brand-main);
+}
+
+/* =========================
+   Utility Classes
+========================= */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: var(--space-5);
+}
+
+.card {
+  background: var(--clr-white);
+  border-radius: var(--radius-soft);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-soft);
+}
+
+.text-muted {
+  color: var(--clr-muted);
+}
+
+.text-center {
+  text-align: center;
+}
