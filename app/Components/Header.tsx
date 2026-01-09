@@ -45,11 +45,11 @@ export default function Header() {
       label: "Certifications",
       icon: <Award className="h-5 w-5" />,
     },
-    {
-      href: "/education",
-      label: "Education",
-      icon: <BookOpen className="h-5 w-5" />,
-    },
+    // {
+    //   href: "/education",
+    //   label: "Education",
+    //   icon: <BookOpen className="h-5 w-5" />,
+    // },
     {
       href: "/contact",
       label: "Contact Us",
@@ -66,7 +66,7 @@ export default function Header() {
           ${
             scrolled || mobileMenuOpen
               ? "bg-white border-b-2 border-[var(--brand-dark)] shadow-[var(--shadow-soft)]"
-              : "bg-transparent "
+              : "bg-transparent border-b-2 border-[var(--brand-accent)] shadow-[var(--shadow-soft)] "
           }`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -89,10 +89,14 @@ export default function Header() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="px-4 py-2 rounded-lg font-medium
-                    transition-colors duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]
-                    hover:bg-[rgba(28,77,141,0.08)]"
-                    style={{ color: "var(--brand-dark)" }}
+                    className={`px-4 py-2 rounded-lg font-medium
+      transition-colors duration-200 ease-out
+      hover:bg-[rgba(28,77,141,0.08)]
+      ${
+        scrolled
+          ? "text-[var(--brand-accent)] hover:border-b-2 hover:border-[var(--brand-dark)]"
+          : "!text-white hover:border-b-2 hover:border-[var(--brand-accent)]"
+      }`}
                   >
                     {link.label}
                   </Link>
@@ -101,18 +105,11 @@ export default function Header() {
 
               {/* Desktop Actions */}
               <div className="hidden md:flex items-center gap-3">
-                <Link
-                  href="/login"
-                  className="flex items-center gap-2 px-4 py-2 rounded-full
-                  transition-colors duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]
-                  hover:bg-[rgba(28,77,141,0.1)]"
-                  style={{
-                    color: "var(--brand-main)",
-                    backgroundColor: "rgba(28,77,141,0.08)",
-                  }}
-                >
-                  <LogIn className="h-4 w-4" />
-                  Login
+                <Link href="/login" className="btn btn-primary">
+                  <div className="flex gap-2">
+                    <LogIn className="h-3 font-bold w-3" />
+                    Login
+                  </div>
                 </Link>
 
                 <Link href="/signup" className="btn btn-primary">
@@ -126,7 +123,7 @@ export default function Header() {
                 className="md:hidden p-2 rounded-lg
                 transition-colors duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]"
                 style={{
-                  color: "var(--brand-dark)",
+                  color: scrolled ? "var(--brand-dark)" : "white",
                   backgroundColor: mobileMenuOpen
                     ? "rgba(28,77,141,0.1)"
                     : "transparent",

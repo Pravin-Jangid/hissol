@@ -48,26 +48,37 @@ export default function AboutUs() {
           </p>
         </div>
 
-        {/* RIGHT STATS */}
-        <div className="about-stats">
-          <div className="stat-card reveal-right">
-            <h3>1000+</h3>
-            <p>Clients Secured</p>
+        {/* RIGHT VISUAL + STATS */}
+        <div className="about-visual reveal-right">
+          {/* Image */}
+          <div className="about-image-wrapper">
+            <img
+              src="https://i.pinimg.com/1200x/d6/9f/8b/d69f8b126d027711746f7d1991ae7154.jpg"
+              alt="Enterprise Infrastructure"
+            />
           </div>
 
-          <div className="stat-card reveal-right">
-            <h3>15+</h3>
-            <p>Years Experience</p>
-          </div>
+          {/* Floating Stats */}
+          <div className="about-stats-grid">
+            <div className="stat-card">
+              <h3>1000+</h3>
+              <p>Clients Secured</p>
+            </div>
 
-          <div className="stat-card reveal-right">
-            <h3>99.9%</h3>
-            <p>Uptime SLA</p>
-          </div>
+            <div className="stat-card">
+              <h3>15+</h3>
+              <p>Years Experience</p>
+            </div>
 
-          <div className="stat-card reveal-right">
-            <h3>24/7</h3>
-            <p>Support</p>
+            <div className="stat-card">
+              <h3>99.9%</h3>
+              <p>Uptime SLA</p>
+            </div>
+
+            <div className="stat-card">
+              <h3>24/7</h3>
+              <p>Support</p>
+            </div>
           </div>
         </div>
       </div>

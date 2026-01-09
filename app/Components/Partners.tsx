@@ -21,11 +21,10 @@ const logos = [
 export default function ClientsMarquee() {
   return (
     <section className="relative py-8 overflow-hidden bg-[var(--brand-accent)]">
-      
       {/* Heading */}
       <div className="max-w-5xl mx-auto text-center mb-5 px-4">
         <h2 className="text-xl md:text-2xl font-semibold text-[var(--brand-dark)]">
-          Trusted by Industry Leaders
+          Our Partners
         </h2>
       </div>
 
@@ -35,7 +34,7 @@ export default function ClientsMarquee() {
 
       {/* Marquee */}
       <div className="relative w-full overflow-hidden">
-        <div className="flex w-max items-center gap-10 animate-marquee">
+        <div className="flex w-max items-center gap-10 animate-marqueere">
           {[...logos, ...logos].map((logo, i) => (
             <div
               key={i}

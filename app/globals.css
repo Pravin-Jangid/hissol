@@ -62,6 +62,25 @@
   /* Fonts */
   --font-body: "Inter", system-ui, sans-serif;
   --font-heading: "Poppins", system-ui, sans-serif;
+  /* ================= GRADIENTS ================= */
+  --gradient-brand: linear-gradient(
+    135deg,
+    var(--brand-dark),
+    var(--brand-main),
+    var(--brand-soft)
+  );
+
+  --gradient-accent: linear-gradient(
+    135deg,
+    var(--brand-main),
+    var(--brand-accent)
+  );
+
+  --gradient-success: linear-gradient(
+    135deg,
+    var(--success-main),
+    var(--success-soft)
+  );
 }
 
 /* =========================
@@ -96,7 +115,6 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading);
-  color: var(--brand-dark);
   line-height: 1.25;
 }
 
@@ -177,6 +195,7 @@ button:hover::before,
 .btn-primary {
   background: var(--brand-main);
   color: var(--clr-white);
+  border-color: var(--clr-bg);
   box-shadow: var(--shadow-soft);
 }
 
@@ -187,6 +206,7 @@ button:hover::before,
 .btn-primary:hover {
   box-shadow: var(--shadow-deep);
   transform: translateY(-1px);
+  color: var(--clr-text);
 }
 
 /* Secondary */
@@ -346,33 +366,92 @@ select:focus {
   opacity: 1;
   transform: translate(0, 0);
 }
-
-/* ================================
-   MARQUEE ANIMATION (GLOBAL)
-================================ */
 @keyframes marquee {
   0% {
-    transform: translateX(0%);
+    transform: translateX(0);
   }
   100% {
     transform: translateX(-50%);
   }
 }
-
-.animate-marquee {
-  animation: marquee 28s linear infinite;
-}
-
-@keyframes marquee {
+@keyframes marqueere {
   0% {
-    transform: translate3d(0, 0, 0);
+    transform: translateX(-0);
   }
   100% {
-    transform: translate3d(-50%, 0, 0);
+    transform: translateX(50%);
   }
 }
-
 .animate-marquee {
-  animation: marquee 38s linear infinite;
+  animation: marquee 22s linear infinite;
+}
+.animate-marqueere {
+  animation: marquee 22s linear infinite;
+}
+
+.cursor-trail {
+  pointer-events: none;
+  position: fixed;
+  border-radius: 50%;
+  z-index: 9999;
   will-change: transform;
+  top: 0;
+  left: 0;
+}
+
+.cursor-1 {
+  width: 40px;
+  height: 40px;
+  background-color: var(--brand-main);
+  opacity: 0.3;
+}
+
+.cursor-2 {
+  width: 25px;
+  height: 25px;
+  background-color: var(--brand-main);
+  opacity: 0.5;
+}
+
+.cursor-3 {
+  width: 12px;
+  height: 12px;
+  background-color: var(--brand-main);
+  opacity: 0.8;
+}
+
+/* ================= SCROLLBAR ================= */
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--brand-accent), var(--brand-main));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--brand-main), var(--brand-dark));
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--brand-main) transparent;
+}
+
+
+.white-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--clr-bg);
+  margin-bottom: 1.5rem;
+  font-family: var(--font-heading);
 }
