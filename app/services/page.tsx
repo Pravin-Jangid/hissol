@@ -181,9 +181,8 @@ export default function PremiumServicesGrid() {
                 <div
                   key={index}
                   ref={(el) => {
-  cardsRef.current[index] = el;
-}}
-
+                    cardsRef.current[index] = el;
+                  }}
                   className="service-card reveal"
                   onMouseEnter={() => setHoveredCard(index)}
                   onMouseLeave={() => setHoveredCard(null)}
