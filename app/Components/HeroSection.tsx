@@ -65,8 +65,7 @@ export default function Hero() {
 
       {/* CONTENT */}
       <div className="hero-content mt-24">
-        <h1 className="text-white">HISSOL</h1>
-        <h2>Hosting Infrastructure Service And Solutions</h2>
+        <h1 className="text-white">HISSOL Hosting Infrastructure Service And Solutions</h1>
         <p>
           Globally certified professionals helping businesses run seamlessly on
           the internet.

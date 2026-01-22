@@ -3,19 +3,14 @@
 import Image from "next/image";
 
 const logos = [
-  "Asian.png",
-  "briscad_logo.png",
+  "aruba.png",
   "Dell_Logo.svg.png",
-  "dormer_pramet_logo.png",
-  "FORACE POLYMERS PVT LTD.png",
-  "Ginni_logo.png",
-  "GVK_BIO.png",
-  "HSCL-logo.png",
-  "Liberty.png",
-  "Miranda_logo.png",
-  "Organic_India.png",
+  "HPE.png",
+  "microsoft.png",
   "redhat-logo.png",
-  "SAFEX CHEMICALS (INDIA) LIMITED.png",
+  "suse-white-logo-green.png",
+  "veeam.png",
+  "vmware-logo-grey.svg",
 ];
 
 export default function ClientsMarquee() {
@@ -47,7 +42,7 @@ export default function ClientsMarquee() {
               "
             >
               <Image
-                src={`/Assets/Logo/${logo}`}
+                src={`/Assets/Logo/Partners/${logo}`}
                 alt="Client Logo"
                 width={120}
                 height={60}
