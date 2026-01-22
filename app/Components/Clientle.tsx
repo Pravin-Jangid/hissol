@@ -20,7 +20,7 @@ export default function ClientsMarquee() {
       {/* Heading */}
       <div className="max-w-6xl mx-auto text-center mb-6 px-4">
         <h2 className="text-xl md:text-2xl font-semibold text-[var(--brand-dark)]">
-          Trusted by Industry Leaders
+          Trusted by clients
         </h2>
       </div>
 
