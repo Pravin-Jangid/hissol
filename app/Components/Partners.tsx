@@ -35,7 +35,7 @@ export default function ClientsMarquee() {
               key={i}
               className="
                 flex items-center justify-center
-                w-[140px] h-[80px]
+                w-[190px] h-[100px]
                 bg-white
                 rounded-lg
                 shadow-sm
