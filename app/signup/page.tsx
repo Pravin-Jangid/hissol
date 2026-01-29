@@ -288,7 +288,7 @@ export default function SignupScreen() {
                   </div>
                 </div>
 
-                {/* Checkboxes */}
+                {/* Checkboxes
                 <div className="space-y-4">
                   <div className="flex items-start">
                     <input
@@ -327,7 +327,7 @@ export default function SignupScreen() {
                       Subscribe to our newsletter for updates, tips, and special offers
                     </label>
                   </div>
-                </div>
+                </div> */}
 
                 {/* Submit Button */}
                 <button

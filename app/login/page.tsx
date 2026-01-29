@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
@@ -18,15 +18,15 @@ export default function LoginScreen() {
     setIsLoading(true);
 
     // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
     // For demo purposes - redirect on successful login
     if (email && password) {
       router.push("/dashboard");
     } else {
       setError("Please enter valid credentials");
     }
-    
+
     setIsLoading(false);
   };
 
@@ -35,12 +35,13 @@ export default function LoginScreen() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         {/* You can replace this with your actual background image */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('https://i.pinimg.com/1200x/af/30/c2/af30c2a8726869fdf410d649a7bae063.jpg')",
+            backgroundImage:
+              "url('https://i.pinimg.com/1200x/af/30/c2/af30c2a8726869fdf410d649a7bae063.jpg')",
             backgroundPosition: "center center",
-            backgroundSize: "cover"
+            backgroundSize: "cover",
           }}
         />
         {/* Dark Overlay for better readability */}
@@ -50,8 +51,6 @@ export default function LoginScreen() {
       </div>
 
       <div className="w-full max-w-md relative mt-20 z-10">
-       
-
         {/* Login Card */}
         <div className="bg-white/95 backdrop-blur-sm border border-white/20 rounded-2xl p-8 shadow-2xl">
           <div className="mb-8">
@@ -68,7 +67,10 @@ export default function LoginScreen() {
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Email Field */}
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Email Address
               </label>
               <input
@@ -81,11 +83,13 @@ export default function LoginScreen() {
                 required
               />
             </div>
-
             {/* Password Field */}
             <div>
               <div className="flex items-center justify-between mb-2">
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium text-gray-700"
+                >
                   Password
                 </label>
                 <Link
@@ -105,23 +109,7 @@ export default function LoginScreen() {
                 required
               />
             </div>
-
-            {/* Remember Me & Terms */}
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <input
-                  id="remember-me"
-                  type="checkbox"
-                  checked={rememberMe}
-                  onChange={(e) => setRememberMe(e.target.checked)}
-                  className="h-4 w-4 rounded border-gray-300 bg-gray-100 text-[var(--brand-dark)] focus:ring-[var(--brand-dark)]"
-                />
-                <label htmlFor="remember-me" className="ml-2 text-sm text-gray-700">
-                  Remember me
-                </label>
-              </div>
-            </div>
-
+           
             {/* Submit Button */}
             <button
               type="submit"
@@ -130,9 +118,24 @@ export default function LoginScreen() {
             >
               {isLoading ? (
                 <span className="flex items-center justify-center">
-                  <svg className="animate-spin h-5 w-5 mr-3 text-white" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                  <svg
+                    className="animate-spin h-5 w-5 mr-3 text-white"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                      fill="none"
+                    />
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                    />
                   </svg>
                   Signing in...
                 </span>
@@ -154,19 +157,23 @@ export default function LoginScreen() {
               </Link>
             </p>
           </div>
-
-         
         </div>
 
         {/* Footer Links */}
         <div className="mt-8 text-center">
           <p className="text-white/80 text-sm drop-shadow-md">
             By continuing, you agree to HISSOL's{" "}
-            <Link href="/terms" className="text-white font-semibold hover:text-white/90 transition-colors">
+            <Link
+              href="/terms"
+              className="text-white font-semibold hover:text-white/90 transition-colors"
+            >
               Terms of Service
             </Link>{" "}
             and{" "}
-            <Link href="/privacy" className="text-white font-semibold hover:text-white/90 transition-colors">
+            <Link
+              href="/privacy"
+              className="text-white font-semibold hover:text-white/90 transition-colors"
+            >
               Privacy Policy
             </Link>
           </p>
