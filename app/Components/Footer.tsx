@@ -32,10 +32,21 @@ export default function Footer() {
           <h3 className="text-4xl font-bold tracking-wide mb-4 font-[var(--font-heading)]">
             HISSOL
           </h3>
-          <p className="text-sm leading-relaxed max-w-sm">
+          <p className="text-sm leading-relaxed max-w-sm mb-4">
             Enterprise system integrator delivering secure, scalable and
             future-ready IT architecture for modern organizations.
           </p>
+          
+          {/* COMPANY ADDRESS */}
+          <div className="text-xs leading-relaxed mt-4">
+            <p className="font-semibold mb-1">Office Address</p>
+            <p>HISSOL Private Limited</p>
+            <p>215, SHRI BALAJI DHAM, RAJAWAS,</p>
+            <p>SIKAR ROAD, AMER, Jaipur,</p>
+            <p>Rajasthan, India 302032</p>
+            <p className="mt-2 font-semibold">Toll Free: 18005727001</p>
+            <p>Email: info@hissol.com</p>
+          </div>
         </div>
 
         {/* COMPANY */}
@@ -85,7 +96,7 @@ export default function Footer() {
         {/* CTA */}
         <div className="rounded-[var(--radius-soft)] border border-white bg-white/10 backdrop-blur-xl p-6">
           <p className="text-sm leading-relaxed mb-6">
-            Let’s design infrastructure that scales with vision, security and
+            Let's design infrastructure that scales with vision, security and
             performance at its core.
           </p>
 

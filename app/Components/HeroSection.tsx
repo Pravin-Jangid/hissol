@@ -59,7 +59,6 @@ export default function Hero() {
       >
         <source src="/Assets/Video/hero.mp4" type="video/mp4" />
       </video>
-
       {/* BRAND OVERLAY */}
       <div className="hero-overlay" />
 
