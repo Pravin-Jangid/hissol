@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import ConsultationFAB from "./Components/ConsultationFAB";
-import FloatingLayer from "./Components/FloatingLayer";
-import Footer from "./Components/Footer";
-import Header from "./Components/Header";
+import ConsultationFAB from "./ConsultationFAB";
+import FloatingLayer from "./FloatingLayer";
+import Footer from "./Footer";
+import Header from "./Header";
 import "./globals.css";
 
 export const metadata: Metadata = {
