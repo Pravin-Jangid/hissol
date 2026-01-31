@@ -160,7 +160,7 @@ export default function ContactUs() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white font-semibold py-5 px-6 rounded-full hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 transform hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-3 group disabled:opacity-70 disabled:cursor-not-allowed"
+                      className="btn btn-primary flex items-center justify-center gap-3 mx-auto group"
                     >
                       <div className={`relative w-6 h-6 flex items-center justify-center ${isSubmitting ? 'animate-spin' : ''}`}>
                         {isSubmitting ? (

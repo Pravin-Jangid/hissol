@@ -45,11 +45,17 @@ export default function Header() {
       label: "Certifications",
       icon: <Award className="h-5 w-5" />,
     },
-    // {
-    //   href: "/education",
-    //   label: "Education",
-    //   icon: <BookOpen className="h-5 w-5" />,
-    // },
+    {
+      href: "/education",
+      label: "Education",
+      icon: <BookOpen className="h-5 w-5" />,
+    },
+    
+    {
+      href: "/about",
+      label: "About Us",
+      icon: <UserPlus className="h-5 w-5" />,
+    },
     {
       href: "/contact",
       label: "Contact Us",
@@ -105,8 +111,8 @@ export default function Header() {
 
               {/* Desktop Actions */}
               <div className="hidden md:flex items-center gap-3">
-                <Link href="/login" className="btn btn-primary">
-                  <div className="flex gap-2">
+                <Link href="/login" className="">
+                  <div className="flex gap-2 btn btn-primary">
                     <LogIn className="h-3 font-bold w-3" />
                     Login
                   </div>
@@ -167,9 +173,6 @@ export default function Header() {
               />
               <div>
                 <p className="font-semibold text-[var(--brand-dark)]">HISSOL</p>
-                <p className="text-xs text-[var(--clr-muted)]">
-                  Your Healthcare Solution
-                </p>
               </div>
             </div>
             <button onClick={() => setMobileMenuOpen(false)}>
@@ -201,32 +204,23 @@ export default function Header() {
           </nav>
 
           {/* CTA */}
-          <div className="p-6 space-y-4">
+          <div className="p-6 flex flex-col space-y-4">
             <Link
               href="/signup"
               onClick={() => setMobileMenuOpen(false)}
-              className="block w-full py-3 text-center rounded-full
-              font-semibold text-white
-              transition-colors duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]
-              hover:bg-[var(--brand-dark)]"
-              style={{ backgroundColor: "var(--brand-main)" }}
+              className="btn btn-primary w-full"
+            >
+              <UserPlus className="inline mr-2 h-4 w-4" />
+              login
+            </Link>
+            <Link
+              href="/signup"
+              onClick={() => setMobileMenuOpen(false)}
+              className="btn btn-primary w-full"
             >
               <UserPlus className="inline mr-2 h-4 w-4" />
               Sign Up Free
             </Link>
-
-            <p className="text-center text-sm text-[var(--clr-muted)]">
-              Already have an account?{" "}
-              <Link
-                href="/login"
-                onClick={() => setMobileMenuOpen(false)}
-                className="font-medium text-[var(--brand-main)]
-                transition-colors duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]
-                hover:text-[var(--brand-dark)]"
-              >
-                Sign In
-              </Link>
-            </p>
           </div>
         </div>
       </div>

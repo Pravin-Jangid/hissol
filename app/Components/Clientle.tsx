@@ -58,13 +58,8 @@ export default function ClientsMarquee() {
 
       {/* View All Button */}
       <div className="mt-8 text-center">
-        <Link
-          href="/our-clients"
-           className="font-medium text-[var(--brand-main)]
-                transition-colors duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]
-                hover:text-[var(--brand-dark)]"
-        >
-          View all clients →
+        <Link href="/our-clients">
+          <button className="btn btn-primary">View all clients →</button>
         </Link>
       </div>
     </section>

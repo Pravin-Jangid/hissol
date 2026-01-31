@@ -1,50 +1,66 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef } from "react";
 import "./hero.css";
 
 export default function Hero() {
-  const c1 = useRef<HTMLDivElement>(null);
-  const c2 = useRef<HTMLDivElement>(null);
-  const c3 = useRef<HTMLDivElement>(null);
+  const c1 = useRef<HTMLDivElement | null>(null);
+  const c2 = useRef<HTMLDivElement | null>(null);
+  const c3 = useRef<HTMLDivElement | null>(null);
 
   const mouse = useRef({ x: 0, y: 0 });
   const p1 = useRef({ x: 0, y: 0 });
   const p2 = useRef({ x: 0, y: 0 });
   const p3 = useRef({ x: 0, y: 0 });
 
-  /* ================= CURSOR (PURE RAF – NO REACT STATE) ================= */
+
   useEffect(() => {
-    if (window.innerWidth < 768) return; // 🔥 mobile off
+  if (typeof window === "undefined") return;
+  if (window.innerWidth < 768) return; // mobile off
 
-    const move = (e: MouseEvent) => {
-      mouse.current.x = e.clientX;
-      mouse.current.y = e.clientY;
-    };
+  let rafId: number;
 
-    window.addEventListener("mousemove", move, { passive: true });
+  const move = (e: MouseEvent) => {
+    mouse.current.x = e.clientX;
+    mouse.current.y = e.clientY;
+  };
 
-    const animate = () => {
-      p1.current.x += (mouse.current.x - p1.current.x) * 0.25;
-      p1.current.y += (mouse.current.y - p1.current.y) * 0.25;
+  window.addEventListener("mousemove", move, { passive: true });
 
-      p2.current.x += (mouse.current.x - p2.current.x) * 0.15;
-      p2.current.y += (mouse.current.y - p2.current.y) * 0.15;
+  const animate = () => {
+    // 🔒 NULL GUARD (MOST IMPORTANT)
+    if (!c1.current || !c2.current || !c3.current) return;
 
-      p3.current.x += (mouse.current.x - p3.current.x) * 0.08;
-      p3.current.y += (mouse.current.y - p3.current.y) * 0.08;
+    p1.current.x += (mouse.current.x - p1.current.x) * 0.25;
+    p1.current.y += (mouse.current.y - p1.current.y) * 0.25;
 
-      c1.current!.style.transform = `translate(${p1.current.x}px, ${p1.current.y}px) translate(-50%,-50%)`;
-      c2.current!.style.transform = `translate(${p2.current.x}px, ${p2.current.y}px) translate(-50%,-50%)`;
-      c3.current!.style.transform = `translate(${p3.current.x}px, ${p3.current.y}px) translate(-50%,-50%)`;
+    p2.current.x += (mouse.current.x - p2.current.x) * 0.15;
+    p2.current.y += (mouse.current.y - p2.current.y) * 0.15;
 
-      requestAnimationFrame(animate);
-    };
+    p3.current.x += (mouse.current.x - p3.current.x) * 0.08;
+    p3.current.y += (mouse.current.y - p3.current.y) * 0.08;
 
-    requestAnimationFrame(animate);
+    c1.current.style.transform =
+      `translate(${p1.current.x}px, ${p1.current.y}px) translate(-50%,-50%)`;
 
-    return () => window.removeEventListener("mousemove", move);
-  }, []);
+    c2.current.style.transform =
+      `translate(${p2.current.x}px, ${p2.current.y}px) translate(-50%,-50%)`;
+
+    c3.current.style.transform =
+      `translate(${p3.current.x}px, ${p3.current.y}px) translate(-50%,-50%)`;
+
+    rafId = requestAnimationFrame(animate);
+  };
+
+  rafId = requestAnimationFrame(animate);
+
+  return () => {
+    cancelAnimationFrame(rafId);
+    window.removeEventListener("mousemove", move);
+  };
+}, []);
+
 
   return (
     <section className="hero">
@@ -64,7 +80,9 @@ export default function Hero() {
 
       {/* CONTENT */}
       <div className="hero-content mt-24">
-        <h1 className="text-white">Hosting Infrastructure Service And Solutions</h1>
+        <h1 className="text-white">
+          Hosting Infrastructure Service And Solutions
+        </h1>
         <p>
           Globally certified professionals helping businesses run seamlessly on
           the internet.
@@ -75,7 +93,11 @@ export default function Hero() {
           <span>✔ Cloud Infrastructure Protection</span>
         </div>
 
-        <button className="btn btn-primary">Get Free Consultation →</button>
+        <Link href="/contact">
+          <button className="btn btn-primary mt-6">
+            Get Free Linkultation →
+          </button>
+        </Link>
       </div>
 
       {/* CURSOR */}
