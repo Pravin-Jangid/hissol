@@ -192,6 +192,21 @@ button:hover::before,
   color: var(--clr-text);
 }
 
+.btn-orange {
+  background: #ff5722;
+  color: #fff;
+  border-color: #ff5722;
+  box-shadow: var(--shadow-soft);
+}
+.btn-orange::before {
+  background: #fff;
+}
+.btn-orange:hover {
+  box-shadow: var(--shadow-deep);
+  transform: translateY(-1px);
+  color: #212529;
+}
+
 /* Secondary */
 .btn-secondary {
   background: transparent;
@@ -446,7 +461,7 @@ select:focus {
   position: fixed;
   inset: 0;
   background: rgba(15, 40, 84, 0.55); /* brand-dark */
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(2px);
   z-index: 999999;
   display: flex;
   align-items: center;

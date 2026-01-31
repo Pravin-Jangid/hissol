@@ -50,7 +50,7 @@ export default function Header() {
       label: "Education",
       icon: <BookOpen className="h-5 w-5" />,
     },
-    
+
     {
       href: "/about",
       label: "About Us",

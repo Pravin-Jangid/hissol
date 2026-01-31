@@ -29,12 +29,20 @@ export default function ConsultationPopup({ open, onClose }: Props) {
 
   return (
     <div className="popup-backdrop" onClick={onClose}>
-      <div className="popup" onClick={(e) => e.stopPropagation()}>
+      <div className="popup " onClick={(e) => e.stopPropagation()}>
         <button className="btn btn-primary popup-close" onClick={onClose}>
           ✕
         </button>
 
-        <h2>Get Free Consultation</h2>
+        <div className="flex flex-col items-center justify-center gap-2">
+          <img
+            src="/Assets/Logo/HISSOL_Logo.png"
+            className="w-14 h-12"
+            alt=""
+          />
+
+          <h2 className="text-2xl font-bold">Get Free Consultation</h2>
+        </div>
 
         <form className="popup-form" onSubmit={onClose}>
           <input
